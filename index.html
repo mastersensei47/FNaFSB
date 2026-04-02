@@ -207,6 +207,109 @@ main{ margin-top:80px; padding:20px; max-width:1300px; margin-left:auto; margin-
   </div>
 </div>
 
+<style>
+.seccion-detalles {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.seccion-detalles h2 {
+  border-left: 4px solid #00ffcc;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.info-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.info-lista li {
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.info-lista li:hover {
+  background: #222;
+  transform: scale(1.02);
+}
+
+.icono {
+  margin-right: 8px;
+}
+
+.acordeon {
+  margin-bottom: 20px;
+}
+
+.acordeon-header {
+  background: #1a1a1a;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.acordeon-header:hover {
+  background: #222;
+}
+
+/* 🔥 acordeón PRO */
+.acordeon-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #111;
+  border-radius: 10px;
+  margin-top: 5px;
+  transition: max-height 0.4s ease;
+}
+
+/* flecha animada */
+.acordeon-header span {
+  float: right;
+  transition: transform 0.3s;
+}
+
+.acordeon-header.active span {
+  transform: rotate(180deg);
+}
+
+/* items internos */
+.acordeon-content ul li {
+  background: #1a1a1a;
+  margin-bottom: 6px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.acordeon-content ul li:hover {
+  background: #222;
+}
+</style>
+
+<script>
+function toggleAcordeon(el) {
+  const content = el.nextElementSibling;
+
+  el.classList.toggle("active");
+
+  if (content.style.maxHeight) {
+    content.style.maxHeight = null;
+  } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
+}
+</script>
+
 <div class="acordeon">
   <div class="acordeon-header" onclick="toggleAcordeon(this)">🔥 CONTENIDO / DLCs <span>▼</span></div>
   <div class="acordeon-content">
